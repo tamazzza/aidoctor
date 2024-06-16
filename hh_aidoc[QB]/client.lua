@@ -8,7 +8,7 @@ local spam = true
  
 
 
-RegisterCommand("help", function(source, args, raw)
+RegisterCommand("medic", function(source, args, raw)
 	if (QBCore.Functions.GetPlayerData().metadata["isdead"]) or (QBCore.Functions.GetPlayerData().metadata["inlaststand"]) and spam then
 		QBCore.Functions.TriggerCallback('hhfw:docOnline', function(EMSOnline, hasEnoughMoney)
 			if EMSOnline <= Config.Doctor and hasEnoughMoney and spam then
@@ -40,8 +40,8 @@ function SpawnVehicle(x, y, z)
 	while not HasModelLoaded(vehhash) do
 		Wait(1)
 	end
-	RequestModel('s_m_m_doctor_01')
-	while not HasModelLoaded('s_m_m_doctor_01') do
+	RequestModel('s_m_m_paramedic_01')
+	while not HasModelLoaded('s_m_m_paramedic_01') do
 		Wait(1)
 	end
 	local spawnRadius = 40                                                    
@@ -55,7 +55,7 @@ function SpawnVehicle(x, y, z)
 		SetEntityAsMissionEntity(mechVeh, true, true)
 		SetVehicleEngineOn(mechVeh, true, true, false)
         
-        mechPed = CreatePedInsideVehicle(mechVeh, 26, GetHashKey('s_m_m_doctor_01'), -1, true, false)              	
+        mechPed = CreatePedInsideVehicle(mechVeh, 26, GetHashKey('s_m_m_paramedic_01'), -1, true, false)              	
         
         mechBlip = AddBlipForEntity(mechVeh)                                                        	
         SetBlipFlashes(mechBlip, true)  
