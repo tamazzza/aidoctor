@@ -1,5 +1,5 @@
 # tazo_aidoc
-AI Doctor
+AI EMS
 
 # აღწერა :
 
