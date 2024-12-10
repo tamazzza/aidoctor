@@ -6,4 +6,3 @@ Config = {}
 Config.Doctor = 0 -- ექიმების რაოდენობა ( მინიმუმი )
 Config.Price = 2000 -- ღირებულება გამოძახების
 Config.ReviveTime = 20000  --დრო მილიწამებში
-

@@ -5,15 +5,12 @@ local test = nil
 local test1 = nil
 local spam = true
 
- 
-
-
 RegisterCommand("medic", function(source, args, raw)
 	if (QBCore.Functions.GetPlayerData().metadata["isdead"]) or (QBCore.Functions.GetPlayerData().metadata["inlaststand"]) and spam then
-		QBCore.Functions.TriggerCallback('hhfw:docOnline', function(EMSOnline, hasEnoughMoney)
+		QBCore.Functions.TriggerCallback('ai:docOnline', function(EMSOnline, hasEnoughMoney)
 			if EMSOnline <= Config.Doctor and hasEnoughMoney and spam then
 				SpawnVehicle(GetEntityCoords(PlayerPedId()))
-				TriggerServerEvent('hhfw:charge')
+				TriggerServerEvent('ai:charge')
 				Notify("Medic is arriving")
 			else
 				if EMSOnline > Config.Doctor then
@@ -29,8 +26,6 @@ RegisterCommand("medic", function(source, args, raw)
 		Notify("This can only be used when dead", "error")
 	end
 end)
-
-
 
 function SpawnVehicle(x, y, z)  
 	spam = false
@@ -51,7 +46,7 @@ function SpawnVehicle(x, y, z)
         mechVeh = CreateVehicle(vehhash, spawnPos, spawnHeading, true, false)                        
         ClearAreaOfVehicles(GetEntityCoords(mechVeh), 5000, false, false, false, false, false);  
         SetVehicleOnGroundProperly(mechVeh)
-		SetVehicleNumberPlateText(mechVeh, "HHFW")
+		SetVehicleNumberPlateText(mechVeh, "ai")
 		SetEntityAsMissionEntity(mechVeh, true, true)
 		SetVehicleEngineOn(mechVeh, true, true, false)
         

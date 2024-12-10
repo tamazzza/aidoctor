@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-QBCore.Functions.CreateCallback('hhfw:docOnline', function(source, cb)
+QBCore.Functions.CreateCallback('ai:docOnline', function(source, cb)
 	local src = source
 	local Ply = QBCore.Functions.GetPlayer(src)
 	local xPlayers = QBCore.Functions.GetPlayers()
@@ -24,8 +24,8 @@ QBCore.Functions.CreateCallback('hhfw:docOnline', function(source, cb)
 	cb(doctor, canpay)
 end)
 
-RegisterServerEvent('hhfw:charge')
-AddEventHandler('hhfw:charge', function()
+RegisterServerEvent('ai:charge')
+AddEventHandler('ai:charge', function()
 	local src = source
 	local xPlayer = QBCore.Functions.GetPlayer(src)
 	if xPlayer.PlayerData.money["cash"] >= Config.Price then
