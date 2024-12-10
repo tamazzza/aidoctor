@@ -11,19 +11,19 @@ RegisterCommand("medic", function(source, args, raw)
 			if EMSOnline <= Config.Doctor and hasEnoughMoney and spam then
 				SpawnVehicle(GetEntityCoords(PlayerPedId()))
 				TriggerServerEvent('ai:charge')
-				Notify("Medic is arriving")
+				Notify("ექიმი გზაშია")
 			else
 				if EMSOnline > Config.Doctor then
-					Notify("There is too many medics online", "error")
+					Notify("სერვერზე არის აქტიური EMS პერსონალი", "error")
 				elseif not hasEnoughMoney then
-					Notify("Not Enough Money", "error")
+					Notify("არ გაქვს საკმარისი თანხა", "error")
 				else
-					Notify("Wait Paramadic is on its Way", "primary")
+					Notify("მოითმინეთ, პარამედიკები გზაში არიან", "primary")
 				end	
 			end
 		end)
 	else
-		Notify("This can only be used when dead", "error")
+		Notify("ვერ გამოიყენებთ სანამ ცოცხალი ხართ", "error")
 	end
 end)
 
@@ -97,7 +97,7 @@ function DoctorNPC()
 	end
 
 	TaskPlayAnim(test1, "mini@cpr@char_a@cpr_str","cpr_pumpchest",1.0, 1.0, -1, 9, 1.0, 0, 0, 0)
-	QBCore.Functions.Progressbar("revive_doc", "The doctor is giving you medical aid", Config.ReviveTime, false, false, {
+	QBCore.Functions.Progressbar("revive_doc", "ექიმი გიწევთ პირველად დახმარებას", Config.ReviveTime, false, false, {
 		disableMovement = false,
 		disableCarMovement = false,
 		disableMouse = false,
@@ -107,7 +107,7 @@ function DoctorNPC()
 		Citizen.Wait(500)
         	TriggerEvent("hospital:client:Revive")
 		StopScreenEffect('DeathFailOut')	
-		Notify("Your treatment is done, you were charged: "..Config.Price, "success")
+		Notify("კარგად გრძნობთ თავს, თქვენ გადაიხადეთ: "..Config.Price, "წარმატებით")
 		RemovePedElegantly(test1)
 		DeleteEntity(test)
 		Wait(5000)

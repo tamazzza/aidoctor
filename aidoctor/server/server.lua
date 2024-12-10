@@ -8,10 +8,9 @@ QBCore.Functions.CreateCallback('ai:docOnline', function(source, cb)
 	local canpay = false
 	if Ply.PlayerData.money["cash"] >= Config.Price then
 		canpay = true
-	end
-
-	if Ply.PlayerData.money["bank"] >= Config.Price then
-		canpay = true
+	else Ply.PlayerData.money["bank"] >= Config.Price then
+			canpay = true
+		end
 	end
 
 	for i=1, #xPlayers, 1 do
@@ -30,9 +29,7 @@ AddEventHandler('ai:charge', function()
 	local xPlayer = QBCore.Functions.GetPlayer(src)
 	if xPlayer.PlayerData.money["cash"] >= Config.Price then
 		xPlayer.Functions.RemoveMoney("cash", Config.Price)
-	end
-
-	if xPlayer.PlayerData.money["bank"] >= Config.Price then
+	else
 		xPlayer.Functions.RemoveMoney("bank", Config.Price)
 	end
 
