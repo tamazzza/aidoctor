@@ -1,9 +1,9 @@
 -------------------
--- CONFIG --
+-- კონფიგი --
 -------------------
 Config = {}
 
-Config.Doctor = 0 -- Minimum Amount of EMS to work
-Config.Price = 2000
-Config.ReviveTime = 20000  --in msec
+Config.Doctor = 0 -- ექიმების რაოდენობა ( მინიმუმი )
+Config.Price = 2000 -- ღირებულება გამოძახების
+Config.ReviveTime = 20000  --დრო მილიწამებში
 
